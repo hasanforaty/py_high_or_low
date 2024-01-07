@@ -38,11 +38,13 @@ def game():
     """game logic"""
     preiviues_data_index = []
     score = 0
-    a_index = choose_data(preiviues_data_index)
-    preiviues_data_index.append(a_index)
     b_index = choose_data(preiviues_data_index)
     preiviues_data_index.append(b_index)
     while True:
+        a_index = b_index
+        b_index = choose_data(preiviues_data_index)
+        preiviues_data_index.append(b_index)
+
         print(logo)
         print(f"your score is {score}")
         print(f"Compare A: {read_data(a_index)}")
@@ -56,9 +58,6 @@ def game():
             print("Correct!")
             print("You win")
             score += 1
-            a_index = b_index
-            b_index = choose_data(preiviues_data_index)
-            preiviues_data_index.append(b_index)
         else:
             print("Wrong!")
             print("You lose")
