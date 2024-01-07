@@ -26,8 +26,8 @@ def get_follower(index):
     return data[index]["follower_count"]
 
 
-def calculate_winner(a_index, b_index):
-    """calculate which index is winner and return 'A' for a_index and 'B' for b_index"""
+def calculate_correct_answer(a_index, b_index):
+    """calculate correct answer based on index of question"""
     if get_follower(a_index) > get_follower(b_index):
         return "a"
     else:
@@ -45,10 +45,10 @@ def game():
     while True:
         print(logo)
         print(f"your score is {score}")
-        print(f"Compare A:{read_data(a_index)}")
+        print(f"Compare A: {read_data(a_index)}")
         print(vs)
-        print(f"Compare B:{read_data(b_index)}")
-        correct_answer = calculate_winner(a_index, b_index)
+        print(f"Against B: {read_data(b_index)}")
+        correct_answer = calculate_correct_answer(a_index, b_index)
         # print(f"correct answer is {correct_answer}")
         answer = input("How has more follower? 'A' for A and 'B' for B: ").lower()
 
